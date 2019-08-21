@@ -3,12 +3,13 @@
 products = []
 with open('products.csv', 'r', encoding = 'utf-8') as f:
 	for line in f:
+		if '商品,價格' in line:
+			continue #跳過商品與價格的資料不要寫入(跳過下一回，還在回圈內)
 		name , price = line.strip().split(',') #用,作為分割，用strip去除\n換行
 		products.append([name, price])#print(name[0],print[0])
-	print(products)
-#記帳程式
+print(products)
 
-
+#讓使用者輸入
 while True:
 	name = input('請輸入商品名稱： ')
 	if name == 'q':	
@@ -18,6 +19,7 @@ while True:
 	products.append(p)
 print(products)
 
+#印出所有購買紀錄
 for p in products:
 	print(p[0], '的價格是', p[1])
 
@@ -25,7 +27,7 @@ for p in products:
 with open('products.csv', 'w', encoding = 'utf-8') as f: #在python下with用法等同於有open與close功能
 	f.write('商品,價格\n') #在csv格式之前加入名稱
 	for p in products:
-
+#寫入檔案
 		f.write(p[0] + ',' + p[1] + '\n') #csv裡面都用,做為區隔
 print('檔案已寫入完成')
 
