@@ -7,5 +7,8 @@ while True:
 	price = input('請輸入商品價格： ')
 	p = [name , price] #建立小清單
 	products.append(p)
+print(products)
 
-print(products[0][0],products[0][1])
+for p in products:
+	print(p[0], '的價格是', p[1])
+	
