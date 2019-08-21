@@ -24,3 +24,11 @@ for d in data :
 	if 'good' in d:
 		find_good.append(d)
 print('一共有', len(find_good), '筆留言提到good') 
+
+
+#list 清單快寫法
+find_good = [d for d in data if 'good'in d]
+#第一個d的意思是"find_good.append(d)的意思，
+#for d in data ，將data資料放到d裡面，
+#if 'good' in d  ，如果d裡面有good的，
+#放入第一個d裡面
