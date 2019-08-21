@@ -12,3 +12,6 @@ print(products)
 for p in products:
 	print(p[0], '的價格是', p[1])
 	
+with open('products.csv', 'w') as f: #在python下with用法等同於有open與close功能
+	for p in products:
+		f.write(p[0] + ',' + p[1] + '\n') #csv裡面都用,做為區隔
